@@ -1,0 +1,11 @@
+inngest
+fastapi
+uvicorn
+python-dotenv
+pydantic
+pydantic-core
+pydantic-settings
+qdrant-client
+openai
+llama-index
+streamlit
