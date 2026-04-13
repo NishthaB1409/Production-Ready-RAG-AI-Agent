@@ -8,4 +8,6 @@ pydantic-settings
 qdrant-client
 openai
 llama-index
+llama-index-core
+llama-index-readers-file
 streamlit
