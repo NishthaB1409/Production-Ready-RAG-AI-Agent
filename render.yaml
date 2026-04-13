@@ -1,0 +1,34 @@
+services:
+  # FastAPI backend (Inngest function server)
+  - type: web
+    name: rag-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: QDRANT_URL
+        sync: false
+      - key: QDRANT_API_KEY
+        sync: false
+      - key: INNGEST_EVENT_KEY
+        sync: false
+      - key: INNGEST_SIGNING_KEY
+        sync: false
+
+  # Streamlit frontend
+  - type: web
+    name: rag-frontend
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run streamlit_app.py --server.port=$PORT --server.address=0.0.0.0
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: INNGEST_EVENT_KEY
+        sync: false
+      - key: INNGEST_SIGNING_KEY
+        sync: false
+      - key: INNGEST_API_BASE
+        sync: false

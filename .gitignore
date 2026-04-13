@@ -1,5 +1,8 @@
 .env
+.venv/
 qdrant_storage/
-*.pdf
+quadrant_storage/
+uploads/
 __pycache__/
 *.pyc
+*.pdf
